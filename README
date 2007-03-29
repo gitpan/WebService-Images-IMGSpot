@@ -1,0 +1,55 @@
+SYNOPSIS
+      use WebService::Images::IMGSpot;
+  
+      my $imgspot = WebService::Images::IMGSpot->new();
+         $imgspot->upload({ file => '/path/to/file.png' });
+  
+      # ... or
+  
+         $imgspot->upload('/path/to/yet_another_file.png');
+
+DESCRIPTION
+    "WebService::Images::IMGSpot" uploads a file to
+    <http://www.imgspot.com/> for you, as long as the file is not bigger
+    than 650 Kb, and the format is .JPG, .JPEG, .GIF, and .PNG.
+
+  METHODS
+   new
+    "new" creates a new WebService::Images::IMGSpot object.
+
+   options
+    user_agent
+        Returns or sets the LWP::UserAgent object used internally so that it
+        can the customised.
+
+   upload
+    This method takes either a scalar (like Image::ImageShack) or a hashref
+    (like WebService::Images::Nofrag). It will do some basic checking and
+    croaks where it sees fit ;-)
+
+    The method returns the URL of where your image is hosted.
+
+   url
+    "url" is a method that can be called after upload, to retrieve the URL
+    to the hosted image (just like WebService::Images::Nofrag).
+
+BUGS
+    Please report any found bugs to
+    <http://rt.cpan.org/Public/Dist/Display.html?Name=WebService-Images-IMGS
+    pot> or contact the author.
+
+AUTHOR
+    M. Blom, <blom@cpan.org>, <http://menno.b10m.net/perl/>
+
+COPYRIGHT
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
+    The full text of the license can be found in the LICENSE file included
+    with this module.
+
+    NOTE: Please see <http://www.imgspot.com/TOS.php> for the Terms of
+    Service of IMGSpot.
+
+SEE ALSO
+    * <http://www.imgspot.com/>

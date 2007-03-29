@@ -1,0 +1,17 @@
+--- #YAML:1.0
+name:                WebService-Images-IMGSpot
+version:             0.01
+abstract:            upload an image to http://www.imgspot.com/
+license:             ~
+generated_by:        ExtUtils::MakeMaker version 6.31
+distribution_type:   module
+requires:     
+    HTTP::Request::Common:         0
+    HTTP::Response:                0
+    LWP::UserAgent:                0
+    Test::Simple:                  0.44
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.2.html
+    version: 1.2
+author:
+    - M. Blom (blom@cpan.org)
