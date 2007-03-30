@@ -7,11 +7,12 @@ SYNOPSIS
       # ... or
   
          $imgspot->upload('/path/to/yet_another_file.png');
+         $imgspot->host('/path/to/yet_another_file.png');
 
 DESCRIPTION
     "WebService::Images::IMGSpot" uploads a file to
     <http://www.imgspot.com/> for you, as long as the file is not bigger
-    than 650 Kb, and the format is .JPG, .JPEG, .GIF, and .PNG.
+    than 650 KB, and the format is .JPG, .JPEG, .GIF, and .PNG.
 
   METHODS
    new
@@ -28,6 +29,9 @@ DESCRIPTION
     croaks where it sees fit ;-)
 
     The method returns the URL of where your image is hosted.
+
+   host
+    An alias for the method upload (just like Image::ImageShack.
 
    url
     "url" is a method that can be called after upload, to retrieve the URL

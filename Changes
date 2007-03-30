@@ -1,5 +1,8 @@
 Revision history for Perl module WebService::Images::IMGSpot
 
+0.02 Mar 30 2007
+    - added the 'host' method and fixed some quoting issues in croaking
+
 0.01 Mar 29 2007
     - original version
 

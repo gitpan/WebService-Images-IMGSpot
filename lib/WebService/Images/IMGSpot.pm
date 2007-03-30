@@ -6,7 +6,7 @@ use HTTP::Response;
 use HTTP::Request::Common;
 use LWP::UserAgent;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub new {
    my ($class, %attrs) = @_;
@@ -46,14 +46,19 @@ sub ua {
    return $self->{'_ua'};
 }
 
+sub host {
+   my $self = shift;
+   return $self->upload(@_);
+}
+
 sub upload {
    my ($self, $input) = @_;
    my $file = (ref $input eq 'HASH') ? $input->{'file'} : $input;
 
    # Do some checks
    croak('No filename given') unless($file);
-   croak('File $file does not exist (or is not readable)') unless(-r $file);
-   croak('File $file is too large in size to upload')
+   croak("File $file does not exist (or is not readable)") unless(-r $file);
+   croak("File $file is too large in size to upload")
       if ( (stat($file))[7] > (650 * 1024) );
 
    # Guess we're ready to go!
@@ -95,6 +100,7 @@ WebService::Images::IMGSpot - upload an image to http://www.imgspot.com/
   # ... or
   
      $imgspot->upload('/path/to/yet_another_file.png');
+     $imgspot->host('/path/to/yet_another_file.png');
 
 =head1 DESCRIPTION
 
@@ -126,6 +132,10 @@ a hashref (like L<WebService::Images::Nofrag>). It will do some basic
 checking and croaks where it sees fit ;-)
 
 The method returns the URL of where your image is hosted.
+
+=head3 host
+
+An alias for the method upload (just like L<Image::ImageShack>.
 
 =head3 url
 
