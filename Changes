@@ -1,5 +1,8 @@
 Revision history for Perl module WebService::Images::IMGSpot
 
+0.03 Apr 01 2007
+    - fixed the user_agent option in new-method
+
 0.02 Mar 30 2007
     - added the 'host' method and fixed some quoting issues in croaking
 

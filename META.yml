@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                WebService-Images-IMGSpot
-version:             0.02
+version:             0.03
 abstract:            upload an image to http://www.imgspot.com/
 license:             ~
 generated_by:        ExtUtils::MakeMaker version 6.31

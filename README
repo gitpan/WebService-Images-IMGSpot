@@ -20,8 +20,8 @@ DESCRIPTION
 
    options
     user_agent
-        Returns or sets the LWP::UserAgent object used internally so that it
-        can the customised.
+        Sets the LWP::UserAgent object used internally so that it can the
+        customised.
 
    upload
     This method takes either a scalar (like Image::ImageShack) or a hashref

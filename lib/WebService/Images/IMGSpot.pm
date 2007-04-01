@@ -6,15 +6,15 @@ use HTTP::Response;
 use HTTP::Request::Common;
 use LWP::UserAgent;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub new {
    my ($class, %attrs) = @_;
 
    my $self = bless ({}, ref ($class) || $class);
-
-   if(ref($attrs{'lwp_ua'}) && $attrs{'lwp_ua'}->isa('LWP::UserAngent')) {
-      $self->ua($attrs{'lwp_ua'});
+   if(ref($attrs{'user_agent'}) && 
+     ref($attrs{'user_agent'}) eq 'LWP::UserAgent') {
+      $self->ua($attrs{'user_agent'});
    } else {
       my $ua = LWP::UserAgent->new(
          'agent'      => 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)',
@@ -23,7 +23,6 @@ sub new {
       );
       $self->ua($ua);
    }
-
    return $self;
 }
 
@@ -40,7 +39,7 @@ sub _get_submit_url {
 
 sub ua {
    my ($self, $ua) = @_;
-   if(ref($ua) && $ua->isa('LWP::UserAgent')){
+   if(ref($ua) && (ref($ua) eq 'LWP::UserAgent')){
       $self->{'_ua'}=$ua;
    }
    return $self->{'_ua'};
@@ -120,8 +119,7 @@ C<new> creates a new WebService::Images::IMGSpot object.
 
 =item user_agent
 
-Returns or sets the LWP::UserAgent object used internally so that it 
-can the customised.
+Sets the LWP::UserAgent object used internally so that it can the customised.
 
 =back
 
